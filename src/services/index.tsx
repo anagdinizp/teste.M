@@ -8,7 +8,7 @@ export async function getCompanyInfo(searchValue: string, dispatch: any) {
   ).then((res) => res.json());
 
   const ChartsData = await fetch(
-    `https://cloud.iexapis.com/beta/stock/${searchValue}/chart/1m?token=${API_TOKEN}&includeToday=true`
+    `https://cloud.iexapis.com/beta/stock/${searchValue}/chart/15d?token=${API_TOKEN}&includeToday=true`
   ).then((res) => res.json());
 
   dispatch(setCompanyInfo({ companyInfo, ChartsData }));
