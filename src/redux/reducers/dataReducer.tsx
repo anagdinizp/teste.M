@@ -2,12 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ICard, IChart } from "../../components/organisms/dashboard";
 
 interface IData {
-  currentSearch: ICard; // Dados gerais de uma empresa 
-  recentSearchList: ICard[]; // Lista com todas as empresas recentemente pesquisadas
-  chartPoints: IChart[]; // Valores referentes a data e valor da ação que vão ser utilizados para formar o eixo x e y do gráfico
-  isLoading: boolean; // Booleano para utilizar o loading durante o ato de pesquisar
+  currentSearch: ICard;
+  recentSearchList: ICard[]; 
+  chartPoints: IChart[]; 
+  isLoading: boolean;
 }
-
 const initialState: IData = {
   currentSearch: {
     companyName: "", 
@@ -26,6 +25,7 @@ export const dataReducer = createSlice({
   name: "data",
   initialState,
   reducers: {
+    
     updateFavList: (state, action: { payload: { quote: ICard } }) => {
       const { quote } = action.payload;
       const newFavList = state.recentSearchList.map((action) =>
